@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Location from 'expo-location';
 import WeatherInfo from './components/WeatherInfo';
+import UnitsPicker from './components/UnitsPicker';
+import WeatherDetails from './components/WeatherDetails';
+
 
 
 
@@ -20,13 +23,16 @@ export default function App() {
 
   const [currentWeather, setCurrentWeather] = useState(null);
 
-  const [unitSystem, setUnitSystem] = useState('imperial')
+  const [unitSystem, setUnitSystem] = useState('imperial');
+
+
 
   useEffect(() => {
       load()
-  }, [])
+  }, [unitSystem])
 
   async function load() {
+      
     try {
         let { status } = await Location.requestPermissionsAsync();
 
@@ -62,18 +68,15 @@ export default function App() {
     }
   }
   if(currentWeather) {
-
-    const { main: { temp } ,
-        
-
-    } = currentWeather;
   
     return (
 			<View style={styles.container}>
 				<View style={styles.main}>
 					<StatusBar style='auto' />
+            <UnitsPicker unitSystem={unitSystem} setUnitSystem={setUnitSystem} />
             <WeatherInfo currentWeather={currentWeather}/>
 				</View>
+        <WeatherDetails currentWeather={currentWeather} />
 			</View>
 		);
 
@@ -94,6 +97,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   main: {
     flex: 1,
