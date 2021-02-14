@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Location from 'expo-location';
+import WeatherInfo from './components/WeatherInfo';
 
 
 
@@ -56,7 +57,7 @@ export default function App() {
          
 
     } catch(error) {
-        setErrorMessage(error.message);
+        setrorMessage(error.message);
     
     }
   }
@@ -71,7 +72,7 @@ export default function App() {
 			<View style={styles.container}>
 				<View style={styles.main}>
 					<StatusBar style='auto' />
-					<Text>{temp}</Text>
+            <WeatherInfo currentWeather={currentWeather}/>
 				</View>
 			</View>
 		);
