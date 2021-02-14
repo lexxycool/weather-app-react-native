@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { colors } from '../utils/index';
-
+import { FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons'
 
 
 const {PRIMARY_COLOR, SECONDARY_COLOR, BORDER_COLOR} = colors;
@@ -16,7 +16,13 @@ export default function WeatherDetails({currentWeather}) {
 			<View style={styles.details}>
 				<View style={styles.detailsRow}>
 					<View style={{...styles.detailsBox, borderRightWidth:1, borderRightColor: BORDER_COLOR}}>
-						<Text>{feels_like}</Text>
+                        <View style={styles.detailsRow}>
+                             <FontAwesome5 name='temperature-low' size={25} color={PRIMARY_COLOR} />
+                             <View>
+                                    <Text>Feels like:</Text>
+						            <Text>{feels_like}F</Text>
+                             </View> 
+                        </View>
 					</View>
 					<View style={styles.detailsBox}>
 						<Text>{humidity}</Text>
