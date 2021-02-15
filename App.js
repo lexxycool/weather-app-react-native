@@ -76,7 +76,7 @@ export default function App() {
             <UnitsPicker unitSystem={unitSystem} setUnitSystem={setUnitSystem} />
             <WeatherInfo currentWeather={currentWeather}/>
 				</View>
-        <WeatherDetails currentWeather={currentWeather} />
+        <WeatherDetails currentWeather={currentWeather} unitSystem={unitSystem} />
 			</View>
 		);
 

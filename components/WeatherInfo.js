@@ -26,6 +26,7 @@ export default function WeatherInfo({currentWeather}) {
 				<Image source={{ uri: iconUrl }} style={styles.weatherIcon} />
 				<Text style={styles.textPrimary}>{temp}</Text>
 				<Text style={styles.textSecondary}>{main}</Text>
+				<Text style={styles.textSecondary}>{description}</Text>
 			</View>
 		);
 }
