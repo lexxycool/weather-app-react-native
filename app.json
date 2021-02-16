@@ -27,6 +27,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "A React Native Weather App featuring the current weather information of a particular location, conversion of different temperature units"
   }
 }
